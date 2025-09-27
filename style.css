@@ -1,3 +1,6 @@
+/* ===============================
+   Root Variables
+=================================*/
 :root {
     /* Primary Palette */
     --primary-color: #5c7cfa;    /* Soft Neon Blue – main buttons, highlights */
@@ -13,12 +16,19 @@
     --text-muted: #a3a3a3;       /* Muted secondary text */
 
     /* Glow effects */
-    --highlight-glow: rgba(92,124,250,0.25);  /* subtle neon glow */
+    --highlight-glow: rgba(92,124,250,0.25);
     --shadow-glow: rgba(127,90,240,0.2);
 }
 
-/* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===============================
+   Reset & Base Styles
+=================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: 'Satoshi', sans-serif;
     color: var(--text-light);
@@ -26,7 +36,10 @@ body {
     line-height: 1.7;
 }
 
-/* Navbar */
+
+/* ===============================
+   Navbar
+=================================*/
 .navbar {
     background: rgba(13, 13, 26, 0.9);
     padding: 1rem 2rem;
@@ -55,7 +68,10 @@ body {
 }
 .nav-link:hover::after { width: 100%; }
 
-/* Hero */
+
+/* ===============================
+   Hero Section
+=================================*/
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -91,7 +107,8 @@ body {
     color: var(--text-muted);
 }
 .hero-avatar {
-    width: 220px; height: 220px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
     box-shadow: 0 0 30px var(--highlight-glow);
@@ -99,7 +116,10 @@ body {
     object-fit: cover;
 }
 
-/* Buttons */
+
+/* ===============================
+   Buttons
+=================================*/
 .btn-primary-custom {
     background: var(--secondary-color);
     padding: 12px 32px;
@@ -128,7 +148,10 @@ body {
     box-shadow: 0 0 20px var(--highlight-glow);
 }
 
-/* Sections */
+
+/* ===============================
+   Sections
+=================================*/
 .section {
     padding: 80px 0;
     background: var(--bg-dark);
@@ -142,8 +165,14 @@ body {
     text-shadow: 0 0 10px rgba(240,182,127,0.6);
 }
 
-/* Cards */
-.skill-card, .project-card, .education-card, .contact-info {
+
+/* ===============================
+   Cards
+=================================*/
+.skill-card,
+.project-card,
+.education-card,
+.contact-info {
     background: var(--bg-card);
     padding: 2rem;
     border-radius: 16px;
@@ -151,12 +180,16 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     transition: transform 0.3s ease, border 0.3s ease;
 }
-.skill-card:hover, .project-card:hover, .education-card:hover {
+.skill-card:hover,
+.project-card:hover,
+.education-card:hover {
     transform: translateY(-10px) scale(1.02);
     border-color: var(--primary-color);
     box-shadow: 0 0 25px var(--highlight-glow);
 }
-.skill-icon, .project-icon, .education-icon {
+.skill-icon,
+.project-icon,
+.education-icon {
     font-size: 2.2rem;
     margin-bottom: 1rem;
     color: var(--secondary-color);
@@ -169,75 +202,16 @@ body {
 }
 .card-text { color: var(--text-muted); }
 
-/* Contact */
-.contact-item {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--text-light);
-}
-.contact-item i { color: var(--accent-color); }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 1.5rem 0;
-    background: var(--bg-dark);
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-.footer-text {
-    color: var(--text-muted);
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .hero-title { font-size: 2.2rem; }
-    .hero-subtitle { font-size: 1.2rem; }
-    .hero-avatar { width: 160px; height: 160px; }
-    .btn-outline-custom { margin: 1rem 0 0; display: block; }
-}
-
-/* Scroll reveal base */
-.skill-card, .project-card, .education-card, .section-title {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Floating particles */
-.hero-section .particle {
-    position: absolute;
-    background: var(--secondary-color);
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: float 12s linear infinite;
-}
-@keyframes float {
-    from { transform: translateY(0) rotate(0deg); }
-    to { transform: translateY(-100vh) rotate(360deg); }
-}
-
-/* Blinking cursor */
-@keyframes blink {
-    0%, 50% { border-color: var(--secondary-color); }
-    51%, 100% { border-color: transparent; }
-}
-
-/* Contact Section */
+/* ===============================
+   Contact Section
+=================================*/
 .contact-section {
     background: var(--bg-dark);
     color: var(--text-light);
     padding: 80px 0;
     align-items: center;
 }
-
 .contact-section .section-title {
     text-align: center;
     font-size: 2rem;
@@ -245,14 +219,12 @@ body {
     color: var(--primary-color);
     font-weight: 700;
 }
-
 .contact-info {
     background: var(--bg-card);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
-
 .contact-item {
     margin-bottom: 15px;
     font-size: 1rem;
@@ -261,20 +233,21 @@ body {
     gap: 10px;
     color: var(--text-light);
 }
-
 .contact-item i {
     color: var(--accent-color);
     font-size: 1.2rem;
 }
 
-/* Contact Form */
+
+/* ===============================
+   Contact Form
+=================================*/
 .contact-form {
     background: var(--bg-card);
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
-
 .contact-form .form-control {
     background: rgba(255, 255, 255, 0.08);
     border: none;
@@ -284,14 +257,11 @@ body {
     font-size: 1rem;
     transition: all 0.3s ease-in-out;
 }
-
 .contact-form .form-control:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 0 6px var(--primary-color);
 }
-
-/* Submit Button */
 .contact-form .btn {
     background: var(--primary-color);
     border: none;
@@ -306,10 +276,71 @@ body {
     align-items: center;
     gap: 8px;
 }
+.contact-form .btn:hover { background: var(--secondary-color); }
+.col-lg-8 { align-items: center; }
 
-.contact-form .btn:hover {
+
+/* ===============================
+   Footer
+=================================*/
+.footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-text {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* ===============================
+   Animations & Effects
+=================================*/
+@keyframes float {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-100vh) rotate(360deg); }
+}
+@keyframes blink {
+    0%, 50% { border-color: var(--secondary-color); }
+    51%, 100% { border-color: transparent; }
+}
+.hero-section .particle {
+    position: absolute;
     background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 12s linear infinite;
 }
-.col-lg-8{
-    align-items: center;
+
+
+/* ===============================
+   Scroll Reveal
+=================================*/
+.skill-card,
+.project-card,
+.education-card,
+.section-title {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ===============================
+   Responsive
+=================================*/
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    .hero-avatar { width: 160px; height: 160px; }
+    .btn-outline-custom { margin: 1rem 0 0; display: block; }
+}
+
+
