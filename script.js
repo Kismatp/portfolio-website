@@ -120,3 +120,31 @@ function typeEffect() {
 }
 
 typeEffect();
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault(); // prevent redirect
+  const data = new FormData(form);
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      status.style.display = "block";
+      status.style.color = "#0f0";
+      status.textContent = "Message sent successfully ✅";
+      form.reset();
+    } else {
+      status.style.display = "block";
+      status.style.color = "red";
+      status.textContent = "Oops! Something went wrong.";
+    }
+  } catch (error) {
+    status.style.display = "block";
+    status.style.color = "red";
+    status.textContent = "Error sending message. Try again later.";
+  }
+});
