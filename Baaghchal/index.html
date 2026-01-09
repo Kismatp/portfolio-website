@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baagh-Chal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- WIN / LOSE POPUP -->
+<div id="popup" class="popup hidden">
+    <div class="popup-box">
+      <h2 id="popupTitle"></h2>
+      <p id="popupMessage"></p>
+      <button onclick="resetGame()">Play Again</button>
+    </div>
+  </div>
+  
+<body>
+
+<div class="app">
+  <h1>🐯 Baagh-Chal</h1>
+
+  <div class="status">
+    <div class="turn-indicator" id="turnIndicator">
+      🐐 Goat
+    </div>
+  
+    <div class="info">
+      <span id="goatsLeft">Goats left: 20</span>
+      <span id="captured">Goats captured: 0</span>
+      <span id="timer">⏱ 30s</span>
+    </div>
+  </div>
+  
+
+  <canvas id="board"></canvas>
+
+  <button onclick="resetGame()">Restart</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
