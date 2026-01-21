@@ -1,41 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Baagh-Chal</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baaghchal | बाघचाल</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- WIN / LOSE POPUP -->
-  <div id="popup" class="popup hidden">
-    <div class="popup-box">
-      <h2 id="popupTitle"></h2>
-      <p id="popupMessage"></p>
-      <button onclick="hidePopup(); resetGame()">Play Again</button>
+<div class="screen active" id="menu-screen">
+  <h1 class="nepali-title">बाघचाल</h1>
+  <h2 class="english-title">BAAGHCHAL</h2>
+  <p class="subtitle">Traditional Nepali Strategy Game</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="icon">🐅</div>
+      <h3>4 Tigers</h3>
+      <p>Capture 5 goats to win</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🐐</div>
+      <h3>20 Goats</h3>
+      <p>Block all tigers to win</p>
     </div>
   </div>
 
-  <div class="app">
-    <h1>🐯 Baagh-Chal</h1>
-
-    <div class="status">
-      <div class="turn-indicator" id="turnIndicator">
-        🐐 Goat
-      </div>
-
-      <div class="info">
-        <span id="goatsLeft">Goats left: 20</span>
-        <span id="captured">Goats captured: 0</span>
-        <span id="timer">⏱ 30s</span>
-      </div>
-    </div>
-
-    <canvas id="board"></canvas>
-
-    <button onclick="resetGame()">Restart</button>
+  <h3>Choose Your Side</h3>
+  <div class="choice-grid">
+    <button class="choice-btn" id="choose-goat">🐐 Play as Goats</button>
+    <button class="choice-btn" id="choose-tiger">🐅 Play as Tigers</button>
   </div>
 
-  <script src="game.js"></script>
+  <div id="mode-selection" style="display:none">
+    <h3>Select Mode</h3>
+    <div class="mode-grid">
+      <button class="mode-btn" id="pvp-mode">👥 Pass & Play</button>
+      <button class="mode-btn" id="ai-mode">🤖 vs AI</button>
+      <button class="mode-btn" disabled>🌐 Multiplayer <span class="badge">Soon</span></button>
+      <button class="mode-btn" id="howto-btn">📜 How to Play</button>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="howto-screen">
+  <h2>📜 How to Play Baaghchal</h2>
+  <div class="howto-box">
+    <p><b>Goats (20):</b> First place one goat per turn on any empty point.<br>After all 20 placed → move to adjacent empty points.</p>
+    <p><b>Tigers (4):</b> Start in corners. Move or jump over goats to capture them (remove captured goat).</p>
+    <hr>
+    <p><b>Win conditions:</b></p>
+    <ul>
+      <li>Tigers win → capture 5 or more goats</li>
+      <li>Goats win → all tigers have no legal moves</li>
+    </ul>
+  </div>
+  <button class="btn" id="howto-back">⬅ Back</button>
+</div>
+
+<div class="screen" id="game-screen">
+  <div class="game-header">
+    <button class="btn" id="back-btn">⬅ Menu</button>
+    <div id="mode-display"></div>
+  </div>
+
+  <div class="game-layout">
+    <div class="panel">
+      <div class="panel-header">
+        <div class="piece-icon">🐐</div>
+        <h3>Goats</h3>
+      </div>
+      <div class="stats">
+        <div class="stat-item"><span>Placed</span><span id="goats-placed">0/20</span></div>
+        <div class="stat-item"><span>Captured</span><span id="goats-captured">0</span></div>
+      </div>
+      <div class="turn-indicator" id="goat-turn">Goat's turn</div>
+    </div>
+
+    <div class="board-container">
+      <svg id="board-svg" viewBox="0 0 400 400"></svg>
+      <div id="board"></div>
+      <div class="move-hint" id="move-hint">Place goat 1 of 20</div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="piece-icon">🐅</div>
+        <h3>Tigers</h3>
+      </div>
+      <div class="stats">
+        <div class="stat-item"><span>On board</span><span>4</span></div>
+        <div class="stat-item"><span>Target</span><span>5 goats</span></div>
+      </div>
+      <div class="turn-indicator" id="tiger-turn">Tiger's turn</div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="gameover-screen">
+  <div class="winner-icon" id="winner-icon"></div>
+  <h2 id="gameover-title"></h2>
+  <p id="gameover-message"></p>
+  <div class="gameover-buttons">
+    <button class="btn-primary" id="play-again">Play Again</button>
+    <button class="btn-secondary" id="back-to-menu">Main Menu</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
